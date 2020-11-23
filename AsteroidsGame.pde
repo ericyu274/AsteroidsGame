@@ -26,10 +26,10 @@ public void keyPressed(){
  booboo.accelerate(-0.5);
  }
  if(key == 'a'){
- booboo.turn(10);
+ booboo.turn(-10);
  }
  if(key == 'd'){
- booboo.turn(-10);
+ booboo.turn(10);
  }
  if(key == 'q'){
  booboo.hyperspace();

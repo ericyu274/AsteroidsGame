@@ -1,6 +1,7 @@
 Spaceship booboo = new Spaceship();        
 star [] moomoo = new star[1000];
 ArrayList <Asteroid> doodoo = new ArrayList <Asteroid>();
+ArrayList <Shoot> poopoo = new ArrayList <Shoot>();
 public void setup() 
 {
   size(600,600);
@@ -25,7 +26,19 @@ public void draw()
   doodoo.get(i).show();
   if(dist(doodoo.get(i).X(), doodoo.get(i).Y(), booboo.X(), booboo.Y())<20){
     doodoo.remove(i);
-    }  
+    }
+  }
+  for(int i = 0; i<poopoo.size(); i++){
+  poopoo.get(i).show();
+  poopoo.get(i).move();
+  }
+  for(int i = 0; i<doodoo.size(); i++){
+    for(int j = 0 ; j<poopoo.size(); j++){
+  if(dist(doodoo.get(i).X(), doodoo.get(i).Y(), poopoo.get(j).X(), poopoo.get(j).Y())<20){
+    doodoo.remove(i);
+    poopoo.remove(j);
+    }
+   }
   }
 }
 
@@ -44,5 +57,8 @@ public void keyPressed(){
  }
  if(key == 'q'){
  booboo.hyperspace();
+ }
+ if(key == ' '){
+ poopoo.add(new Shoot(booboo));
  }
 }

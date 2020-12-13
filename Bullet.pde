@@ -8,7 +8,7 @@ class Shoot extends Floater{
     myPointDirection = theShip.myPointDirection;
     dRadians = theShip.myPointDirection*(Math.PI/180);
     myColor = 255;
-    accelerate(8);
+    accelerate(6);
   }
   public void show(){
     ellipse((float)myCenterX, (float)myCenterY, 10, 10);
